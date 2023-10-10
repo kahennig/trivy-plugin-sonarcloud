@@ -37,6 +37,7 @@ def make_sonar_issues(vulnerabilities, file_path=None):
         {
             "engineId": "Trivy",
             "ruleId": vuln["VulnerabilityID"],
+            "name": vuln["VulnerabilityID"],
             "description": vuln["Description"],
             "type": "VULNERABILITY",
             "impacts": [
