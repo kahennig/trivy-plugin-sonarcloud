@@ -90,7 +90,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "ruleId": "vuln1",
                 "name": "vuln1",
                 "description": "desc1",
-                "type": "VULNERABILITY",
+                "cleanCodeAttribute": "TRUSTWORTHY",
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
@@ -111,7 +111,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "ruleId": "vuln2",
                 "name": "vuln2",
                 "description": "desc2",
-                "type": "VULNERABILITY",
+                "cleanCodeAttribute": "TRUSTWORTHY",
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
@@ -151,7 +151,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "ruleId": "vuln1",
                 "name": "vuln1",
                 "description": "desc1",
-                "type": "VULNERABILITY",
+                "cleanCodeAttribute": "TRUSTWORTHY",
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
@@ -172,7 +172,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "ruleId": "vuln2",
                 "name": "vuln2",
                 "description": "desc2",
-                "type": "VULNERABILITY",
+                "cleanCodeAttribute": "TRUSTWORTHY",
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
