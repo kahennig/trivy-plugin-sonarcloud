@@ -94,7 +94,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
-                        "severity": "MINOR",
+                        "severity": "LOW",
                     }
                 ],
                 "issues": [
@@ -115,7 +115,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
-                        "severity": "MAJOR",
+                        "severity": "MEDIUM",
                     }
                 ],
                 "issues": [
@@ -155,7 +155,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
-                        "severity": "CRITICAL",
+                        "severity": "HIGH",
                     }
                 ],
                 "issues": [
@@ -176,7 +176,7 @@ class TestMakeSonarIssues(unittest.TestCase):
                 "impacts": [
                     {
                         "softwareQuality": "SECURITY",
-                        "severity": "BLOCKER",
+                        "severity": "HIGH",
                     }
                 ],
                 "issues": [
