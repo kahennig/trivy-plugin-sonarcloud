@@ -12,11 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Compress
-        run: tar -zcvf trivy-sonarqube.tar.gz sonarqube.py plugin.yaml LICENSE
+        run: tar -zcvf trivy-sonarcloud.tar.gz sonarcloud.py plugin.yaml LICENSE
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            trivy-sonarqube.tar.gz
+            trivy-sonarcloud.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

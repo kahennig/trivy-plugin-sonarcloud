@@ -1,10 +1,10 @@
-name: "sonarqube"
-repository: github.com/umax/trivy-plugin-sonarqube
+name: "sonarcloud"
+repository: github.com/kahennig/trivy-plugin-sonarcloud
 version: "0.2.2"
-usage: Convert Trivy JSON report to SonarQube format
+usage: Convert Trivy JSON report to SonarCloud format
 description: |-
-  A Trivy plugin that converts JSON report to SonarQube compatible format (https://docs.sonarqube.org/latest/analysis/generic-issue/).
-  Usage: trivy sonarqube TRIVY-REPORT > SONARQUBE-REPORT
+  A Trivy plugin that converts JSON report to SonarCloud compatible format (https://docs.sonarcloud.io/enriching/generic-issue-data/).
+  Usage: trivy sonarcloud TRIVY-REPORT > SONARCLOUD-REPORT
 platforms:
-  - uri: https://github.com/umax/trivy-plugin-sonarqube/releases/download/v0.2.2/trivy-sonarqube.tar.gz
-    bin: sonarqube.py
+  - uri: https://github.com/kahennig/trivy-plugin-sonarcloud/releases/download/v0.0.1/trivy-sonarcloud.tar.gz
+    bin: sonarcloud.py

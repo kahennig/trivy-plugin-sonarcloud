@@ -1,0 +1,7 @@
+{
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "aiXcoder.showTrayIcon": false,
+    "cSpell.words": [
+        "sonarcloud"
+    ]
+}

@@ -4,8 +4,8 @@ import json
 import os
 import sys
 
-LOG_PREFIX = "[trivy][plugins][sonarqube]"
-TRIVY_SONARQUBE_SEVERITY = {
+LOG_PREFIX = "[trivy][plugins][sonarcube]"
+TRIVY_CLOUD_SEVERITY = {
     "UNKNOWN": "INFO",
     "LOW": "MINOR",
     "MEDIUM": "MAJOR",
@@ -37,19 +37,29 @@ def make_sonar_issues(vulnerabilities, file_path=None):
         {
             "engineId": "Trivy",
             "ruleId": vuln["VulnerabilityID"],
+            "description": vuln["Description"],
             "type": "VULNERABILITY",
-            "severity": TRIVY_SONARQUBE_SEVERITY[vuln["Severity"]],
-            "primaryLocation": {
-                "message": vuln["Description"],
-                "filePath": file_path or vuln["Target"],
-            },
+            "impacts": [
+                {
+                    "softwareQuality": "SECURITY",
+                    "severity": TRIVY_CLOUD_SEVERITY[vuln["Severity"]],
+                },
+            ],
+            "issues": [
+                {
+                    "primaryLocation": {
+                        "message": vuln["Description"],
+                        "filePath": file_path or vuln["Target"]
+                    }
+                },
+            ],
         }
         for vuln in vulnerabilities
     ]
 
 
-def make_sonar_report(issues):
-    return json.dumps({"issues": issues}, indent=2)
+def make_sonar_report(rules):
+    return json.dumps({"rules": rules}, indent=2)
 
 
 def main(args):
@@ -64,8 +74,8 @@ def main(args):
 
     report = load_trivy_report(fname)
     vulnerabilities = parse_trivy_report(report)
-    issues = make_sonar_issues(vulnerabilities, file_path=arg_filePath)
-    report = make_sonar_report(issues)
+    rules = make_sonar_issues(vulnerabilities, file_path=arg_filePath)
+    report = make_sonar_report(rules)
     print(report)
 
 

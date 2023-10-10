@@ -2,7 +2,7 @@ import json
 import tempfile
 import unittest
 
-from sonarqube import (
+from sonarcloud import (
     load_trivy_report,
     parse_trivy_report,
     make_sonar_issues,
@@ -83,29 +83,50 @@ class TestMakeSonarIssues(unittest.TestCase):
             "Target": "target2",
         }
 
-        issues = make_sonar_issues([vuln1, vuln2], file_path="path1")
-        assert issues == [
+        reports = make_sonar_issues([vuln1, vuln2], file_path="path1")
+        assert reports == [
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln1",
+                "description": "desc1",
                 "type": "VULNERABILITY",
-                "severity": "MINOR",
-                "primaryLocation": {
-                    "message": "desc1",
-                    "filePath": "path1",
-                },
+                "impacts": [
+                    {
+                        "softwareQuality": "SECURITY",
+                        "severity": "MINOR",
+                    }
+                ],
+                "issues": [
+                    {
+                        "primaryLocation": {
+                            "message": "desc1",
+                            "filePath": "path1",
+                        }
+                    }
+                ],
             },
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln2",
+                "description": "desc2",
                 "type": "VULNERABILITY",
-                "severity": "MAJOR",
-                "primaryLocation": {
-                    "message": "desc2",
-                    "filePath": "path1",
-                },
-            },
+                "impacts": [
+                    {
+                        "softwareQuality": "SECURITY",
+                        "severity": "MAJOR",
+                    }
+                ],
+                "issues": [
+                    {
+                        "primaryLocation": {
+                            "message": "desc2",
+                            "filePath": "path1",
+                        }
+                    }
+                ],
+            }
         ]
+    
 
     def test_no_file_path_override(self):
         vuln1 = {
@@ -121,36 +142,56 @@ class TestMakeSonarIssues(unittest.TestCase):
             "Target": "target2",
         }
 
-        issues = make_sonar_issues([vuln1, vuln2])
-        assert issues == [
+        reports = make_sonar_issues([vuln1, vuln2])
+        assert reports == [
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln1",
+                "description": "desc1",
                 "type": "VULNERABILITY",
-                "severity": "CRITICAL",
-                "primaryLocation": {
-                    "message": "desc1",
-                    "filePath": "target1",
-                },
+                "impacts": [
+                    {
+                        "softwareQuality": "SECURITY",
+                        "severity": "CRITICAL",
+                    }
+                ],
+                "issues": [
+                    {
+                        "primaryLocation": {
+                            "message": "desc1",
+                            "filePath": "target1",
+                        }
+                    }
+                ],
             },
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln2",
+                "description": "desc2",
                 "type": "VULNERABILITY",
-                "severity": "BLOCKER",
-                "primaryLocation": {
-                    "message": "desc2",
-                    "filePath": "target2",
-                },
-            },
+                "impacts": [
+                    {
+                        "softwareQuality": "SECURITY",
+                        "severity": "BLOCKER",
+                    }
+                ],
+                "issues": [
+                    {
+                        "primaryLocation": {
+                            "message": "desc2",
+                            "filePath": "target2",
+                        }
+                    }
+                ],
+            }
         ]
 
 
 class TestMakeSonarReport(unittest.TestCase):
     def test_ok(self):
-        issues = [1, True, "three"]
-        report = make_sonar_report(issues)
-        assert json.loads(report) == {"issues": [1, True, "three"]}
+        rules = [1, True, "three"]
+        report = make_sonar_report(rules)
+        assert json.loads(report) == {"rules": [1, True, "three"]}
 
 
 if __name__ == "__main__":
