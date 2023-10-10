@@ -1,6 +1,7 @@
-# trivy-plugin-sonarcloud
+# WARNING: THIS IS WORK IN PROGRESS. IT DOES NOT WORK RIGHT NOW
 
-WARN: THIS IS WORK IN PROGRESS. IT DOES NOT WORK RIGHT NOW
+
+# trivy-plugin-sonarcloud
 
 A [Trivy](https://github.com/aquasecurity/trivy) plugin that converts JSON report to [SonarCloud](https://sonarcloud.io) format. The idea is to scan project dependencies with Trivy and post results to SonarCloud through external issues report. This way you can get code scanning and dependency scanning results in one place.
 
