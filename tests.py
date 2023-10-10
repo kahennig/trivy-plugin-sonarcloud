@@ -88,6 +88,7 @@ class TestMakeSonarIssues(unittest.TestCase):
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln1",
+                "name": "vuln1",
                 "description": "desc1",
                 "type": "VULNERABILITY",
                 "impacts": [
@@ -108,6 +109,7 @@ class TestMakeSonarIssues(unittest.TestCase):
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln2",
+                "name": "vuln2",
                 "description": "desc2",
                 "type": "VULNERABILITY",
                 "impacts": [
@@ -147,6 +149,7 @@ class TestMakeSonarIssues(unittest.TestCase):
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln1",
+                "name": "vuln1",
                 "description": "desc1",
                 "type": "VULNERABILITY",
                 "impacts": [
@@ -167,6 +170,7 @@ class TestMakeSonarIssues(unittest.TestCase):
             {
                 "engineId": "Trivy",
                 "ruleId": "vuln2",
+                "name": "vuln2",
                 "description": "desc2",
                 "type": "VULNERABILITY",
                 "impacts": [
