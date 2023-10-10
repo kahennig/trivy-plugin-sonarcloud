@@ -1,10 +1,10 @@
 name: "sonarcloud"
 repository: github.com/kahennig/trivy-plugin-sonarcloud
-version: "0.0.3"
+version: "0.0.4"
 usage: Convert Trivy JSON report to SonarCloud format
 description: |-
   A Trivy plugin that converts JSON report to SonarCloud compatible format (https://docs.sonarcloud.io/enriching/generic-issue-data/).
   Usage: trivy sonarcloud TRIVY-REPORT > SONARCLOUD-REPORT
 platforms:
-  - uri: https://github.com/kahennig/trivy-plugin-sonarcloud/releases/download/0.0.3/trivy-sonarcloud.tar.gz
+  - uri: https://github.com/kahennig/trivy-plugin-sonarcloud/releases/download/0.0.4/trivy-sonarcloud.tar.gz
     bin: sonarcloud.py
