@@ -39,7 +39,7 @@ def make_sonar_issues(vulnerabilities, file_path=None):
             "ruleId": vuln["VulnerabilityID"],
             "name": vuln["VulnerabilityID"],
             "description": vuln["Description"],
-            "type": "VULNERABILITY",
+            "cleanCodeAttribute": "TRUSTWORTHY",
             "impacts": [
                 {
                     "softwareQuality": "SECURITY",
